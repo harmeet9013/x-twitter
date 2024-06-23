@@ -20,9 +20,13 @@ export default function ThemeProvider({ children }) {
 
     const customTheme = createTheme(memoizedValue);
 
+    console.log(customTheme);
+
     customTheme.typography = typography(customTheme);
 
     customTheme.components = componentsOverrides(customTheme);
+
+    console.log(customTheme);
 
     return (
         <MuiThemeProvider theme={customTheme}>

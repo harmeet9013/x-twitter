@@ -1,5 +1,5 @@
-import { HomeLayout } from "@/layouts/home";
+import { ProfileLayout } from "@/layouts/profile";
 
 export default function Layout({ children }) {
-  return <HomeLayout>{children}</HomeLayout>;
+    return <ProfileLayout>{children}</ProfileLayout>;
 }

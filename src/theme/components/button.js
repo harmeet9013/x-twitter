@@ -9,8 +9,10 @@ export default function button(theme) {
     };
 
     const styles = (ownerState) => {
+        const isLightMode = theme.palette.mode === "light";
         const roundedValue = roundedValues[ownerState.rounded];
         const softVariant = ownerState.variant === "soft";
+        const inheritColor = ownerState.color === "inherit";
 
         if (!roundedValue) {
             throw new Error(
@@ -29,10 +31,14 @@ export default function button(theme) {
 
         const variantStyles = {
             ...(softVariant && {
-                backgroundColor: theme.palette.action.hover,
-                "&:hover": {
-                    backgroundColor: theme.palette.action.focus,
-                },
+                ...(inheritColor && {
+                    backgroundColor: theme.palette.grey[isLightMode ? 80 : 20],
+                    color: theme.palette.grey[isLightMode ? 0 : 100],
+                    "&:hover": {
+                        backgroundColor:
+                            theme.palette.grey[isLightMode ? 90 : 15],
+                    },
+                }),
             }),
         };
 

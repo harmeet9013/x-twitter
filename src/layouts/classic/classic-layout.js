@@ -24,13 +24,18 @@ export default function ClassicLayout({ children }) {
     const pathname = usePathname();
     const router = useRouter();
 
+    const handleNavigate = (url) => {
+        if (!!url) {
+            router.push(url);
+        }
+    };
+
     return (
-        <Stack width={1} bgcolor="background.paper">
+        <Stack width={1} bgcolor="background.default">
             <Container maxWidth="xl">
                 <Stack height="100dvh" direction="row">
                     <Stack
                         width={0.2}
-                        // maxWidth={MAIN_NAV_WIDTH}
                         height={1}
                         p={2}
                         spacing={3}
@@ -71,6 +76,7 @@ export default function ClassicLayout({ children }) {
 
                                     return (
                                         <Button
+                                            key={index}
                                             variant={
                                                 isSelected
                                                     ? "contained"
@@ -83,7 +89,7 @@ export default function ClassicLayout({ children }) {
                                             }
                                             size="large"
                                             onClick={() =>
-                                                router.push(item?.url)
+                                                handleNavigate(item?.url)
                                             }
                                             fullWidth
                                             rounded="xl"
@@ -137,7 +143,16 @@ export default function ClassicLayout({ children }) {
                         </Stack>
                     </Stack>
 
-                    <Box width={0.8}>{children}</Box>
+                    <Stack
+                        width={0.8}
+                        sx={{
+                            border: `2px solid ${theme.palette.divider}`,
+                            borderTop: 0,
+                            borderBottom: 0,
+                        }}
+                    >
+                        {children}
+                    </Stack>
                 </Stack>
             </Container>
         </Stack>

@@ -1,5 +1,5 @@
-import { HomeLayout } from "@/layouts/home";
+import { DiscoverLayout } from "@/layouts/discover";
 
 export default function Layout({ children }) {
-  return <HomeLayout>{children}</HomeLayout>;
+    return <DiscoverLayout>{children}</DiscoverLayout>;
 }

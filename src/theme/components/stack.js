@@ -4,6 +4,7 @@ export default function stack(theme) {
             styleOverrides: {
                 root: ({ ownerState }) => ({
                     transition: theme.transitions.create([
+                        "border",
                         "background",
                         "width",
                     ]),

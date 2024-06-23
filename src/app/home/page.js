@@ -1,11 +1,11 @@
 "use client";
 
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 export default function Page() {
-  return (
-    <Stack height={1} width={1} bgcolor="background.default">
-      home page
-    </Stack>
-  );
+    return (
+        <Stack height={1} width={1}>
+            <Typography variant="h5">Home</Typography>
+        </Stack>
+    );
 }

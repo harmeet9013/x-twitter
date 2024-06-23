@@ -7,7 +7,7 @@ import { HEADER } from "@/config";
 //
 import { bgBlur } from "@/theme/css";
 
-export default function HomeLayout({ children }) {
+export default function DiscoverLayout({ children }) {
     const theme = useTheme();
 
     return (
@@ -37,7 +37,7 @@ export default function HomeLayout({ children }) {
                     px={4}
                     py={2}
                 >
-                    <Typography variant="h4">Home</Typography>
+                    <Typography variant="h4">Discover</Typography>
                 </Stack>
             </Stack>
             <Box
