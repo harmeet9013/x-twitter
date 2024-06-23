@@ -1,16 +1,19 @@
+import { ClassicLayout } from "@/layouts/classic";
 import { ThemeProvider, primaryFont } from "@/theme";
 
 export const metadata = {
-    title: "X-twitter",
-    description: "Clone of X (Twitter)",
+  title: "X-twitter",
+  description: "Clone of X (Twitter)",
 };
 
 export default function RootLayout({ children }) {
-    return (
-        <html lang="en">
-            <body className={primaryFont.className}>
-                <ThemeProvider>{children}</ThemeProvider>
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <body className={primaryFont.className}>
+        <ThemeProvider>
+          <ClassicLayout>{children}</ClassicLayout>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }
