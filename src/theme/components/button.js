@@ -27,6 +27,9 @@ export default function button(theme) {
             textTransform: "none",
             boxShadow: "none",
             transition: theme.transitions.create(),
+            "&:hover": {
+                boxShadow: "none",
+            },
         };
 
         const variantStyles = {

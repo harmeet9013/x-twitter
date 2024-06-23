@@ -4,7 +4,6 @@ import { CssBaseline, createTheme } from "@mui/material";
 import { ThemeProvider as MuiThemeProvider } from "@emotion/react";
 //
 import palette from "./palette";
-import { merge } from "lodash";
 import { typography } from "./typography";
 import { useSettingsContext } from "@/settings";
 import componentsOverrides from "./components";
@@ -20,13 +19,9 @@ export default function ThemeProvider({ children }) {
 
     const customTheme = createTheme(memoizedValue);
 
-    console.log(customTheme);
-
     customTheme.typography = typography(customTheme);
 
     customTheme.components = componentsOverrides(customTheme);
-
-    console.log(customTheme);
 
     return (
         <MuiThemeProvider theme={customTheme}>

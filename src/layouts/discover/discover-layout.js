@@ -16,6 +16,7 @@ export default function DiscoverLayout({ children }) {
             height={1}
             sx={{
                 background: theme.palette.background.paper,
+                overflowY: "auto",
             }}
         >
             <Stack
@@ -40,13 +41,7 @@ export default function DiscoverLayout({ children }) {
                     <Typography variant="h4">Discover</Typography>
                 </Stack>
             </Stack>
-            <Box
-                sx={{
-                    overflowY: "auto",
-                }}
-            >
-                {children}
-            </Box>
+            <Box>{children}</Box>
         </Stack>
     );
 }

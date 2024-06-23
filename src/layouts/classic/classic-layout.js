@@ -1,7 +1,7 @@
 "use client";
 
-import { X } from "@mui/icons-material";
-import { useTheme } from "@emotion/react";
+import { usePathname, useRouter } from "next/navigation";
+//
 import {
     Box,
     Button,
@@ -11,18 +11,20 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+import { X } from "@mui/icons-material";
+import { useTheme } from "@emotion/react";
 //
 import { useSettingsContext } from "@/settings";
 //
-import { THEME_OPTIONS } from "@/_mock";
 import { NAV_LIST } from "@/config";
-import { usePathname, useRouter } from "next/navigation";
+//
+import { THEME_OPTIONS } from "@/_mock";
 
 export default function ClassicLayout({ children }) {
     const theme = useTheme();
-    const settings = useSettingsContext();
-    const pathname = usePathname();
     const router = useRouter();
+    const pathname = usePathname();
+    const settings = useSettingsContext();
 
     const handleNavigate = (url) => {
         if (!!url) {
@@ -35,12 +37,12 @@ export default function ClassicLayout({ children }) {
             <Container maxWidth="xl">
                 <Stack height="100dvh" direction="row">
                     <Stack
-                        width={0.2}
-                        height={1}
                         p={2}
+                        height={1}
                         spacing={3}
-                        justifyContent="space-between"
+                        width={0.2}
                         alignItems="center"
+                        justifyContent="space-between"
                     >
                         <Stack
                             width={1}
@@ -131,7 +133,9 @@ export default function ClassicLayout({ children }) {
                                                 : "inherit"
                                         }
                                         onClick={() =>
-                                            settings.setThemeMode(item?.value)
+                                            settings.handleSelectTheme(
+                                                item?.value
+                                            )
                                         }
                                         startIcon={item?.icon}
                                         rounded="xl"

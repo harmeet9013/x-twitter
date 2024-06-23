@@ -16,6 +16,7 @@ export default function HomeLayout({ children }) {
             height={1}
             sx={{
                 background: theme.palette.background.paper,
+                overflowY: "auto",
             }}
         >
             <Stack
@@ -25,7 +26,9 @@ export default function HomeLayout({ children }) {
                 sx={{
                     height: HEADER,
                     borderBottom: `1px solid ${theme.palette.divider}`,
-                    ...bgBlur({ color: theme.palette.background.default }),
+                    ...bgBlur({
+                        color: theme.palette.background.default,
+                    }),
                 }}
             >
                 <Stack
@@ -40,13 +43,7 @@ export default function HomeLayout({ children }) {
                     <Typography variant="h4">Home</Typography>
                 </Stack>
             </Stack>
-            <Box
-                sx={{
-                    overflowY: "auto",
-                }}
-            >
-                {children}
-            </Box>
+            <Box>{children}</Box>
         </Stack>
     );
 }
