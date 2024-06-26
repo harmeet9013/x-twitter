@@ -1,5 +1,11 @@
+const ROUTES = {
+    HOME: "/home",
+    AUTH: "/login",
+};
+
 export const paths = {
-    home: "/home",
-    profile: "/profile",
-    discover: "/discover",
+    home: ROUTES.HOME,
+    profile: ROUTES.HOME + "/profile",
+    discover: ROUTES.HOME + "/discover",
+    login: ROUTES.AUTH,
 };

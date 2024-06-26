@@ -1,9 +1,10 @@
 //
 import { SettingsProvider } from "@/settings";
 //
-import { ClassicLayout } from "@/layouts/classic";
+import { AuthContext, AuthSession } from "@/contexts";
 //
 import { ThemeProvider, primaryFont } from "@/theme";
+//
 import { SnackbarProvider } from "@/components/notistack";
 
 export const metadata = {
@@ -11,7 +12,7 @@ export const metadata = {
     description: "Clone of X (Twitter)",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, session }) {
     return (
         <html lang="en">
             <body
@@ -21,13 +22,15 @@ export default function RootLayout({ children }) {
                     padding: 0,
                 }}
             >
-                <SettingsProvider>
-                    <ThemeProvider>
-                        <SnackbarProvider>
-                            <ClassicLayout>{children}</ClassicLayout>
-                        </SnackbarProvider>
-                    </ThemeProvider>
-                </SettingsProvider>
+                <AuthContext session={session}>
+                    <AuthSession>
+                        <SettingsProvider>
+                            <ThemeProvider>
+                                <SnackbarProvider>{children}</SnackbarProvider>
+                            </ThemeProvider>
+                        </SettingsProvider>
+                    </AuthSession>
+                </AuthContext>
             </body>
         </html>
     );

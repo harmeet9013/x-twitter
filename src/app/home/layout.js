@@ -1,5 +1,10 @@
-import { HomeLayout } from "@/layouts/home";
+import { GlobalAuthGuard } from "@/guards";
+import { ClassicLayout } from "@/layouts/classic";
 
 export default function Layout({ children }) {
-  return <HomeLayout>{children}</HomeLayout>;
+    return (
+        <GlobalAuthGuard>
+            <ClassicLayout>{children}</ClassicLayout>
+        </GlobalAuthGuard>
+    );
 }

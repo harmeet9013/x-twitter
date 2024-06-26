@@ -72,9 +72,7 @@ export default function ClassicLayout({ children }) {
 
                             <Stack width={1} spacing={2} alignItems="center">
                                 {NAV_LIST?.map((item, index) => {
-                                    const isSelected = pathname?.includes(
-                                        item?.value
-                                    );
+                                    const isSelected = pathname === item?.url;
 
                                     return (
                                         <Button

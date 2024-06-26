@@ -2,7 +2,7 @@
 
 import { createContext, useEffect, useMemo, useState } from "react";
 //
-import Cookies from "js-cookie";
+import { getCookie, setCookie } from "cookies-next";
 //
 import { useBoolean } from "@/hooks";
 //
@@ -16,7 +16,7 @@ export default function SettingsProvider({ children }) {
     const [themeMode, setThemeMode] = useState("dark");
 
     const handleSelectTheme = (mode) => {
-        Cookies.set("themeMode", mode);
+        setCookie("themeMode", mode);
         setThemeMode(mode);
     };
 
@@ -32,7 +32,7 @@ export default function SettingsProvider({ children }) {
     useEffect(() => {
         isLoading?.onTrue();
 
-        const theme = Cookies.get("themeMode");
+        const theme = getCookie("themeMode");
 
         if (!!theme) {
             setThemeMode(theme);
