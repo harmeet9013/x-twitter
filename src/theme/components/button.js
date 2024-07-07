@@ -10,17 +10,17 @@ export default function button(theme) {
 
     const styles = (ownerState) => {
         const isLightMode = theme.palette.mode === "light";
-        const roundedValue = roundedValues[ownerState.rounded];
+        const roundedValue = roundedValues[ownerState.rounded || "md"];
         const softVariant = ownerState.variant === "soft";
         const inheritColor = ownerState.color === "inherit";
 
-        if (!roundedValue) {
-            throw new Error(
-                `Invalid rounded value: [${Object.keys(roundedValues)?.join(
-                    ", "
-                )}]`
-            );
-        }
+        // if (!roundedValue) {
+        //     throw new Error(
+        //         `Invalid rounded value: [${Object.keys(roundedValues)?.join(
+        //             ", "
+        //         )}]`
+        //     );
+        // }
 
         const defaultStyle = {
             borderRadius: theme.spacing(roundedValue),

@@ -1,11 +1,7 @@
 "use client";
 
-import { Stack } from "@mui/material";
+import { LoginView } from "@/sections/login/view";
 
 export default function Page() {
-    return (
-        <Stack height={1} width={1} bgcolor="background.default">
-            login
-        </Stack>
-    );
+    return <LoginView />;
 }

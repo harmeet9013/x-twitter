@@ -20,6 +20,7 @@ export default function RootLayout({ children, session }) {
                 style={{
                     margin: 0,
                     padding: 0,
+                    height: "100dvh",
                 }}
             >
                 <AuthContext session={session}>
