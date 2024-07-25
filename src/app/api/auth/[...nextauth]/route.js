@@ -1,4 +1,7 @@
 import { paths } from "@/config";
+import endpoints from "@/config/endpoints";
+import { useLogin } from "@/hooks/login";
+import { api } from "@/lib";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
@@ -20,7 +23,21 @@ const handler = NextAuth({
                 },
             },
             async authorize(credentials) {
-                console.log("Credentials", credentials);
+                try {
+                    const response = await api.post(endpoints.auth.login, {
+                        ...credentials,
+                    });
+
+                    console.log(response);
+                } catch (error) {
+                    console.log(error);
+                    throw new Error(
+                        typeof error === "string"
+                            ? error
+                            : error?.response?.data?.message ||
+                              "Unexpected Error!"
+                    );
+                }
                 // try {
                 //     const { email, password } = credentials;
 

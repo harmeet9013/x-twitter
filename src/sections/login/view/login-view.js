@@ -9,6 +9,8 @@ import { LoadingButton } from "@mui/lab";
 import { EmailRounded, PasswordRounded, X } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import { signIn } from "next-auth/react";
+import endpoints from "@/config/endpoints";
 
 export default function LoginView() {
     const theme = useTheme();
@@ -36,8 +38,14 @@ export default function LoginView() {
     } = methods;
 
     const onSubmit = handleSubmit(async (data) => {
-        console.log(data);
+        const response = await signIn("credentials", {
+            redirect: false,
+            ...data,
+        });
+        console.log(response);
     });
+
+    console.log(isSubmitting);
 
     return (
         <Container maxWidth="lg">
