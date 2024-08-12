@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 //
 import { Controller, useFormContext } from "react-hook-form";
 
-export default function RHFTextField({ name, ...other }) {
+export const RHFTextField = ({ name, ...other }) => {
     const { control } = useFormContext();
 
     return (
@@ -14,11 +14,11 @@ export default function RHFTextField({ name, ...other }) {
                     {...field}
                     fullWidth
                     variant="outlined"
-                    error={error}
+                    error={!!error}
                     helperText={error?.message || ""}
                     {...other}
                 />
             )}
         />
     );
-}
+};

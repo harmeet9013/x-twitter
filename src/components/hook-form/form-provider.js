@@ -1,6 +1,6 @@
 import { FormProvider as Form } from "react-hook-form";
 
-export default function FormProvider({ methods, onSubmit, children }) {
+export const FormProvider = ({ methods, onSubmit, children }) => {
     return (
         <Form {...methods}>
             <form
@@ -14,4 +14,4 @@ export default function FormProvider({ methods, onSubmit, children }) {
             </form>
         </Form>
     );
-}
+};

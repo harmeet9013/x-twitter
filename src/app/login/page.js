@@ -1,6 +1,6 @@
 "use client";
 
-import { LoginView } from "@/sections/login/view";
+import { LoginView } from "@/modules/auth";
 
 export default function Page() {
     return <LoginView />;

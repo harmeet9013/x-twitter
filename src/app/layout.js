@@ -1,9 +1,9 @@
 //
-import { SettingsProvider } from "@/settings";
+import { SettingsProvider } from "@/providers/settings";
 //
 import { AuthContext, AuthSession } from "@/contexts";
 //
-import { ThemeProvider, primaryFont } from "@/theme";
+import { ThemeProvider, primaryFont } from "@/providers/theme";
 //
 import { SnackbarProvider } from "@/components/notistack";
 

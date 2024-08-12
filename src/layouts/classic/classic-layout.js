@@ -3,9 +3,10 @@
 import { usePathname, useRouter } from "next/navigation";
 //
 import {
-    Box,
     Button,
     ButtonGroup,
+    Card,
+    CardContent,
     Container,
     Divider,
     Stack,
@@ -14,13 +15,13 @@ import {
 import { X } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 //
-import { useSettingsContext } from "@/settings";
+import { useSettingsContext } from "@/providers/settings";
 //
 import { NAV_LIST } from "@/config";
 //
 import { THEME_OPTIONS } from "@/_mock";
 
-export default function ClassicLayout({ children }) {
+export const ClassicLayout = ({ children }) => {
     const theme = useTheme();
     const router = useRouter();
     const pathname = usePathname();
@@ -34,13 +35,13 @@ export default function ClassicLayout({ children }) {
 
     return (
         <Stack width={1} bgcolor="background.default">
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
                 <Stack height="100dvh" direction="row">
                     <Stack
                         p={2}
                         height={1}
                         spacing={3}
-                        width={0.2}
+                        width={0.18}
                         alignItems="center"
                         justifyContent="space-between"
                     >
@@ -59,12 +60,17 @@ export default function ClassicLayout({ children }) {
                                 alignItems="center"
                                 justifyContent="center"
                             >
-                                <X color="primary" fontSize="large" />
+                                <X
+                                    fontSize="large"
+                                    sx={{
+                                        color: "primary.light",
+                                    }}
+                                />
 
                                 <Typography
                                     variant="h4"
                                     fontWeight={600}
-                                    color="primary"
+                                    color="primary.light"
                                 >
                                     Twitter
                                 </Typography>
@@ -146,7 +152,7 @@ export default function ClassicLayout({ children }) {
                     </Stack>
 
                     <Stack
-                        width={0.8}
+                        width={0.6}
                         sx={{
                             border: `2px solid ${theme.palette.divider}`,
                             borderTop: 0,
@@ -155,8 +161,48 @@ export default function ClassicLayout({ children }) {
                     >
                         {children}
                     </Stack>
+
+                    <Stack width={0.22} px={3} pt={3}>
+                        <Card variant="outlined">
+                            <CardContent>
+                                <Typography
+                                    variant="h5"
+                                    gutterBottom
+                                    align="center"
+                                >
+                                    Trending
+                                </Typography>
+
+                                <Divider flexItem />
+
+                                <Stack pt={2}>
+                                    <Typography
+                                        variant="h6"
+                                        align="left"
+                                        color="primary.light"
+                                    >
+                                        #One
+                                    </Typography>
+                                    <Typography
+                                        variant="h6"
+                                        align="left"
+                                        color="primary.light"
+                                    >
+                                        #Two
+                                    </Typography>
+                                    <Typography
+                                        variant="h6"
+                                        align="left"
+                                        color="primary.light"
+                                    >
+                                        #Three
+                                    </Typography>
+                                </Stack>
+                            </CardContent>
+                        </Card>
+                    </Stack>
                 </Stack>
             </Container>
         </Stack>
     );
-}
+};

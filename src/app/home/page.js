@@ -1,7 +1,4 @@
-"use client";
-
-import { HomeLayout } from "@/layouts/home";
-import { HomeView } from "@/sections/home/view";
+import { HomeLayout, HomeView } from "@/modules/home";
 
 export default function Page() {
     return (

@@ -1,1 +1,1 @@
-export { default as PageLoader } from "./page-loader";
+export * from "./page-loader";

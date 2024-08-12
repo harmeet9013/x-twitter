@@ -1,9 +1,14 @@
 "use client";
 
+import { useTheme } from "@emotion/react";
 import { X } from "@mui/icons-material";
 import { CircularProgress, Stack } from "@mui/material";
 
-export default function PageLoader() {
+export const PageLoader = () => {
+    const theme = useTheme();
+
+    console.log("===", theme);
+
     const spacing = (value) => {
         return `${value * 8}px`;
     };
@@ -28,4 +33,4 @@ export default function PageLoader() {
             <CircularProgress color="primary" size={60} disableShrink />
         </Stack>
     );
-}
+};

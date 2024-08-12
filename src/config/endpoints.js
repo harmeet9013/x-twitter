@@ -1,8 +1,5 @@
 const ROUTES = {
-    USER: {
-        LOGIN: "/login",
-        REGISTER: "/register",
-    },
+    USER: "/users",
 };
 
 const append = (array) => {
@@ -11,6 +8,7 @@ const append = (array) => {
 
 export default {
     auth: {
-        login: append([ROUTES.USER.LOGIN]),
+        login: append([ROUTES.USER, "/login"]),
+        register: append([ROUTES.USER, "/register"]),
     },
 };
